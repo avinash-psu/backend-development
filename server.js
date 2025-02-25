@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
 const bookRoutes = require('./src/routes/bookRoutes');
 const app = express();
 
@@ -23,16 +25,19 @@ app.use(cors(corsOptions)); // Use the CORS configuration
 app.use(helmet());
 app.use(express.json());
 
+const swaggerDocument = YAML.load('./src/swagger.yaml');
 // Add this new route for the root path
-app.get('/', (req, res) => {
-  res.status(200).json({
-    message: "Welcome to the Book API",
-    documentation: "/api-docs",
-    endpoints: {
-      books: "/api/books"
-    }
-  });
-});
+// app.get('/', (req, res) => {
+//   res.status(200).json({
+//     message: "Welcome to the Book API",
+//     documentation: "/api-docs",
+//     endpoints: {
+//       books: "/api/books"
+//     }
+//   });
+// });
+
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api/books', bookRoutes);
 

@@ -1,18 +1,26 @@
----
-page_type: sample
-languages:
-- nodejs
-- javascript
-products:
-- azure
-- azure-app-service
-description: "This sample demonstrates a tiny Hello World Node.js app for Azure App Service."
----
+# Harry Potter Books API
 
-# Node.js Hello World
+A RESTful API that fetches Harry Potter book data, stores it in SQLite, and provides CRUD operations.
 
-This sample demonstrates a tiny Hello World node.js app for [App Service Web App](https://docs.microsoft.com/azure/app-service-web).
+## Features
+- Fetch and store book data from Harry Potter API
+- CRUD operations for book management
+- Data validation
+- API documentation (Swagger)
+- Error handling and basic security
 
-## Contributing
+## Tech Stack
+Node.js, Express, SQLite3, Axios, Joi, Swagger UI
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Quick Start
+1. Clone: `git clone https://github.com/psu-edu/psgv-se-2025spring-sweng861AT.git`
+2. cd `/Sweg861/week3/backend-development`
+3. Install: `npm install`
+4. Run: `npm start`
+
+## API Endpoints
+- `POST /api/books/fetch`: Fetch and store books in sqlite database
+- `GET /api/books`: Get all books
+- `GET /api/books/:number`: Get book by number
+- `PUT /api/books/:number`: Update book
+- `DELETE /api/books/:number`: Delete book
